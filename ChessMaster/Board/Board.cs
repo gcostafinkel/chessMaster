@@ -15,5 +15,9 @@ namespace board {
             pieces = new Piece[Lines, Rows];
 
         }
+
+        public Piece getPieces(int line, int row) {
+            return pieces[line, row];
+        }
     }
 }
