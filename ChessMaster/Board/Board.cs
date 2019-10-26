@@ -15,11 +15,41 @@ namespace board {
             pieces = new Piece[Lines, Rows];
         }
 
-        public Piece getPieces(int line, int row) {
+        public Piece piece(int line, int row) {
             return pieces[line, row];
         }
 
+        public Boolean placeAlreadyOccupied (Position pos) {
+            validatePosition(pos);
+            return piece(pos) != null;
+        }
+        public Piece piece (Position pos) {
+            if (validPosition(pos))
+                return pieces[pos.line, pos.row];
+            else {
+                validatePosition(pos);
+                return null;
+            }
+        }
+
+        public bool validPosition (Position pos) {
+            if (pos.line >= 0 && pos.line <= 7 && pos.row >= 0 && pos.row <= 7)
+                return true;
+            else
+                return false;
+        }
+
+        public void validatePosition(Position pos) {
+            if (!validPosition(pos)) {
+                throw new BoardException("This position is not valid!");
+            }
+
+        }
+
         public void placePiece(Piece p, Position pos) {
+            if (placeAlreadyOccupied(pos)) {
+                throw new BoardException("Place already occupied!");
+            }
             pieces[pos.line, pos.row] = p;
             p.position = pos;
 
