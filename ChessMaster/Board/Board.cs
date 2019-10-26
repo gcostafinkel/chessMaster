@@ -13,11 +13,16 @@ namespace board {
             this.Lines = l;
             this.Rows = r;
             pieces = new Piece[Lines, Rows];
-
         }
 
         public Piece getPieces(int line, int row) {
             return pieces[line, row];
+        }
+
+        public void placePiece(Piece p, Position pos) {
+            pieces[pos.line, pos.row] = p;
+            p.position = pos;
+
         }
     }
 }

@@ -11,8 +11,10 @@ namespace board {
 
         public Board board { get; protected set; }
 
-        public Piece (Position p, Board b, Color c) {
-            this.position = p;
+
+
+        public Piece (Board b, Color c) {
+            this.position = null;
             this.board = b;
             this.color = c;
             this.movementQty = 0;
