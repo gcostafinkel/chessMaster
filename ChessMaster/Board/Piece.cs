@@ -20,5 +20,8 @@ namespace board {
             this.movementQty = 0;
         }
 
+        public void addMovementQty () {
+            movementQty++;
+        }
     }
 }

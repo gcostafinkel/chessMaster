@@ -52,7 +52,16 @@ namespace board {
             }
             pieces[pos.line, pos.row] = p;
             p.position = pos;
+        }
 
+        public Piece removePiece(Position pos) {
+            if (piece(pos) == null) {
+                return null;
+            }
+            Piece aux = piece(pos);
+            aux.position = null;
+            pieces[pos.line, pos.row] = null;
+            return aux;
         }
     }
 }

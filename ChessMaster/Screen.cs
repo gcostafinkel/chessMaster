@@ -1,4 +1,5 @@
 ﻿using board;
+using chess;
 using System;
 
 namespace ChessMaster {
@@ -25,9 +26,14 @@ namespace ChessMaster {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write(piece + " ");
                 Console.ForegroundColor = ConsoleColor.White;
-
             }
+        }
 
+        public static PositionChess readPositionChess() {
+            string s = Console.ReadLine();
+            char row = s[0];
+            int line = int.Parse(s[1] + " ");
+            return new PositionChess(row, line);
         }
     }
 }
