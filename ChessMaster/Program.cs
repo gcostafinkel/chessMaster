@@ -7,13 +7,13 @@ namespace ChessMaster {
         static void Main(string[] args) {
             try {
 
-                PositionChess pos = new PositionChess('a', 1);
-                Console.WriteLine(pos); 
-                Console.WriteLine(pos.toPosition());
-
-                PositionChess pos2 = new PositionChess('c', 7);
-                Console.WriteLine(pos2);
-                Console.WriteLine(pos2.toPosition());
+                Board board = new Board(8, 8);
+                board.placePiece(new King(board, Color.Black), new Position(0, 1));
+                board.placePiece(new Tower(board, Color.Black), new Position(2, 6));
+                board.placePiece(new King(board, Color.White), new Position(3, 3));
+                board.placePiece(new Tower(board, Color.White), new Position(5, 5));
+                board.placePiece(new King(board, Color.Black), new Position(6, 0));
+                Screen.printBoard(board);
 
             }
             catch (BoardException e) {
